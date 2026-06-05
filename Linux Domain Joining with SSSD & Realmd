@@ -1,3 +1,5 @@
+Refer this page if you're not comfortable with this page: https://sites.google.com/view/linux-domain-joining/home
+
 Joining a Linux System to a Domain: A Comprehensive Guide
 In a corporate or enterprise environment, it is often necessary to integrate Linux systems into a domain. By joining a Linux system to a domain, administrators can manage user accounts, group policies, and security settings more efficiently across multiple systems. This blog post will provide a detailed overview of the fundamental concepts, usage methods, common practices, and best practices for joining a Linux system to a domain.
 
