@@ -1,0 +1,131 @@
+# Winget Manual Upgrade Process
+
+## Overview
+
+Winget (Windows Package Manager) is a command-line tool that helps install, upgrade, and manage applications on Windows devices. 
+This guide explains how to manually upgrade applications using Winget.
+
+---
+
+## Prerequisites
+
+* Windows 10/11
+* Winget installed and configured
+* Internet connectivity
+* Administrative privileges (if required by the application)
+
+---
+
+## Step 1: Open Command Prompt or PowerShell
+
+1. Press **Windows + X**.
+2. Select **Windows PowerShell** or **Command Prompt**.
+3. Run as Administrator if required.
+
+---
+
+## Step 2: Check Winget Version
+
+Verify that Winget is installed:
+
+```powershell
+winget --version
+```
+
+Expected Output:
+
+```powershell
+v1.x.x
+```
+
+---
+
+## Step 3: View Available Application Updates
+
+Run the following command to check for available upgrades:
+
+```powershell
+winget upgrade
+```
+
+Example Output:
+
+```powershell
+Name                    Id                          Version   Available
+Google Chrome           Google.Chrome.EXE           137.0     138.0
+Microsoft Teams         Microsoft.Teams             25150     25160
+```
+
+---
+
+## Step 4: Upgrade a Specific Application
+
+To upgrade a single application, use:
+
+```powershell
+winget upgrade Google.Chrome.EXE
+```
+
+Example:
+
+```powershell
+winget upgrade Microsoft.Teams
+```
+
+Winget will download and install the latest available version.
+
+---
+
+## Step 5: Verify the Upgrade
+
+Run:
+
+```powershell
+winget upgrade
+```
+
+The upgraded application should no longer appear in the available updates list.
+
+---
+
+## Step 6: Upgrade All Applications (Optional)
+
+To upgrade all supported applications at once:
+
+```powershell
+winget upgrade --all
+```
+
+---
+
+## Troubleshooting
+
+### Application Not Found
+
+Search for the application ID:
+
+```powershell
+winget search Chrome
+```
+
+### Upgrade Fails
+
+Refresh Winget sources:
+
+```powershell
+winget source update
+```
+
+Retry the upgrade command.
+
+### Check Installed Applications
+
+```powershell
+winget list
+```
+
+
+## Conclusion
+
+Winget simplifies software maintenance by providing a quick and reliable way to update applications from the command line. 
+Administrators can use `winget upgrade` to identify available updates and install the latest versions efficiently.
