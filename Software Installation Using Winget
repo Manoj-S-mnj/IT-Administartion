@@ -1,0 +1,157 @@
+# Winget Application Installation Process
+
+## Overview
+
+Winget (Windows Package Manager) allows users and administrators to install applications directly from the command line. 
+This guide explains how to search for and install applications using Winget.
+
+---
+
+## Prerequisites
+
+* Windows 10/11
+* Winget installed and configured
+* Internet connectivity
+* Administrative privileges (if required by the application)
+
+---
+
+## Step 1: Open Command Prompt or PowerShell
+
+1. Press **Windows + X**.
+2. Select **Windows PowerShell** or **Command Prompt**.
+3. Run as Administrator if required.
+
+---
+
+## Step 2: Verify Winget Installation
+
+Check whether Winget is available on the system:
+
+```powershell
+winget --version
+```
+
+Expected Output:
+
+```powershell
+v1.x.x
+```
+
+---
+
+## Step 3: Search for an Application
+
+Before installing an application, search for its package ID:
+
+```powershell
+winget search Chrome
+```
+
+Example Output:
+
+```powershell
+Name               Id                   Version
+Google Chrome      Google.Chrome.EXE    138.0
+```
+
+Note the **Id** value, as it can be used during installation.
+
+---
+
+## Step 4: Install the Application
+
+Use the package ID to install the application:
+
+```powershell
+winget install Google.Chrome.EXE
+```
+
+Winget will download and install the latest available version automatically.
+
+---
+
+## Step 5: Accept Agreements (If Prompted)
+
+Some packages may require acceptance of source or package agreements:
+
+```powershell
+winget install Google.Chrome.EXE --accept-source-agreements --accept-package-agreements
+```
+
+---
+
+## Step 6: Verify Installation
+
+Check whether the application is installed successfully:
+
+```powershell
+winget list
+```
+
+Example Output:
+
+```powershell
+Name               Id                   Version
+Google Chrome      Google.Chrome.EXE    138.0
+```
+
+---
+
+## Additional Examples
+
+### Install Microsoft PowerToys
+
+```powershell
+winget install Microsoft.PowerToys
+```
+
+### Install Notepad++
+
+```powershell
+winget install Notepad++.Notepad++
+```
+
+### Install VLC Media Player
+
+```powershell
+winget install VideoLAN.VLC
+```
+
+---
+
+## Troubleshooting
+
+### Application Not Found
+
+Search for the correct package ID:
+
+```powershell
+winget search <ApplicationName>
+```
+
+Example:
+
+```powershell
+winget search VLC
+```
+
+### Update Winget Sources
+
+If packages are not appearing:
+
+```powershell
+winget source update
+```
+
+### View Installed Applications
+
+```powershell
+winget list
+```
+
+---
+
+## Conclusion
+
+Winget provides a fast and efficient method for installing applications through the command line. By using `winget search` and `winget install`, administrators can deploy software consistently and reduce manual installation efforts across Windows devices.
