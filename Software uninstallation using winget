@@ -1,0 +1,183 @@
+# Winget Application Uninstallation Process
+
+## Overview
+
+Winget (Windows Package Manager) allows users and administrators to uninstall applications directly from the command line. 
+This guide explains how to identify and remove installed applications using Winget.
+
+---
+
+## Prerequisites
+
+* Windows 10/11
+* Winget installed and configured
+* Administrative privileges (if required by the application)
+
+---
+
+## Step 1: Open Command Prompt or PowerShell
+
+1. Press **Windows + X**.
+2. Select **Windows PowerShell** or **Command Prompt**.
+3. Run as Administrator if required.
+
+---
+
+## Step 2: Verify Winget Installation
+
+Confirm Winget is available:
+
+```powershell
+winget --version
+```
+
+Expected Output:
+
+```powershell
+v1.x.x
+```
+
+---
+
+## Step 3: View Installed Applications
+
+List all installed applications:
+
+```powershell
+winget list
+```
+
+Example Output:
+
+```powershell
+Name                Id                    Version
+Google Chrome       Google.Chrome.EXE     138.0
+Notepad++           Notepad++.Notepad++   8.8.2
+VLC Media Player    VideoLAN.VLC          3.0.21
+```
+
+---
+
+## Step 4: Identify the Application ID
+
+If the application list is large, search for a specific application:
+
+```powershell
+winget list Chrome
+```
+
+Example Output:
+
+```powershell
+Name             Id                  Version
+Google Chrome    Google.Chrome.EXE   138.0
+```
+
+Note the **Id** value, which will be used during uninstallation.
+
+---
+
+## Step 5: Uninstall the Application
+
+Use the application ID to remove the software:
+
+```powershell
+winget uninstall Google.Chrome.EXE
+```
+
+Example:
+
+```powershell
+winget uninstall Notepad++.Notepad++
+```
+
+Winget will start the application's uninstallation process.
+
+---
+
+## Step 6: Verify Uninstallation
+
+Check whether the application has been removed:
+
+```powershell
+winget list
+```
+
+Or search for the application:
+
+```powershell
+winget list Chrome
+```
+
+If no results are returned, the application has been successfully uninstalled.
+
+---
+
+## Additional Examples
+
+### Uninstall Microsoft PowerToys
+
+```powershell
+winget uninstall Microsoft.PowerToys
+```
+
+### Uninstall VLC Media Player
+
+```powershell
+winget uninstall VideoLAN.VLC
+```
+
+### Uninstall Microsoft Teams
+
+```powershell
+winget uninstall Microsoft.Teams
+```
+
+---
+
+## Troubleshooting
+
+### Application Not Found
+
+Search for the installed application:
+
+```powershell
+winget list <ApplicationName>
+```
+
+Example:
+
+```powershell
+winget list VLC
+```
+
+### Multiple Matching Applications
+
+If multiple applications match the search criteria, use the exact package ID displayed in the `winget list` output.
+
+### Verify Installed Packages
+
+```powershell
+winget list
+```
+
+### Force Silent Uninstallation (If Supported)
+
+```powershell
+winget uninstall Google.Chrome.EXE --silent
+```
+
+---
+
+## Best Practices
+
+* Verify the application ID before uninstalling.
+* Close the application before starting the uninstall process.
+* Review dependencies if the software is used by other applications.
+* Maintain a record of removed software in enterprise environments.
+
+---
+
+## Conclusion
+
+Winget provides a simple and efficient way to uninstall applications from Windows devices. Using `winget list` and `winget uninstall`, administrators can quickly remove software and maintain system hygiene through a consistent command-line experience.
